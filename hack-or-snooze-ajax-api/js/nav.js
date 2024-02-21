@@ -41,3 +41,5 @@ function navSubmitClick(evt) {
   $allStoriesList.show();
   $submitForm.show();
 }
+
+$navSubmit.on("click", navSubmitClick);
