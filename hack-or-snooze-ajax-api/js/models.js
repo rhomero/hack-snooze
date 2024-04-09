@@ -76,7 +76,7 @@ class StoryList {
   async addStory(user, { title, author, url } ) {
     // UNIMPLEMENTED: complete this function!
     const token = user.loginToken;
-      const request = await axios({
+      const response = await axios({
         method: "POST",
         url: `${BASE_URL}/stories`,
         data: { token, story: { title, author, url } },
