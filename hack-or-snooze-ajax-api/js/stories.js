@@ -66,8 +66,10 @@ async function submitNewArticle(evt) {
   const $story = generateStoryMarkup(story);
   $allStoriesList.prepend($story);
 
-  // hide the form and reset it
+  
   $submitForm.slideUp("slow");
   $submitForm.trigger("reset");
 
 }
+
+$submitForm.on("submit", submitNewArticle)
