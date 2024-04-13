@@ -226,4 +226,9 @@ class User {
     })
   }
 
+  //checks if story is favorite or not, return false if empty
+   isFav(story) {
+    return this.favorites.some(s => (s.storyId === story.storyId));
+  }
+
 }

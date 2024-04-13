@@ -51,6 +51,43 @@ function putStoriesOnPage() {
   $allStoriesList.show();
 }
 
+
+/**put favorite articles on page */
+function putFavoritesOnPage(){
+  console.debug("putFavoritesOnPage");
+  
+  $favStoriesList.empty();
+
+  if(currentUser.favorites.length === 0){
+    $favStoriesList.append("<h4>No favorites added:/</h4>");
+    
+  }else{
+    for (let story of currentUser.favorites){
+    const $story = generateStoryMarkup(story);
+      $favStoriesList.append($story);
+    }
+  }
+  $favStoriesList.show
+}
+
+function putMyStoriesOnPage(){
+  console.debug("putMyStoriesOnPage");
+  
+  $userStoriesList.empty();
+
+  
+  if(currentUser.ownStories.length === 0){
+    $userStoriesList.append("<h4>No favorites added:/</h4>");
+  }else {
+    for (let story of currentUser.ownStories) {
+      let $story = generateStoryMarkup(story);
+      $userStoriesList.append($story);
+    }
+
+  }
+  $userStoriesList.show();
+}
+
 async function submitNewArticle(evt) {
   console.debug("submitNewArticle")
   evt.preventDefault();
