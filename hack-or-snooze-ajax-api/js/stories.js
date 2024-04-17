@@ -28,7 +28,7 @@ function generateStoryMarkup(story, showTrash=false) {
   const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">
-      ${showStar ? getStar(story, currentUser) : null}
+      ${showStar ? getStar(story, currentUser) : ""}
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
@@ -153,3 +153,15 @@ async function favoriteToggle(evt) {
 }
 
 $storiesLists.on("click",".star", favoriteToggle);
+
+async function trashButtonClick(evt) {
+  console.debug("trashButtonClick");
+
+  const $closestLi = $(evt.target).closest("li");
+  const storyId = $closestLi.attr("id");
+  await storyList.deleteStory(currentUser,storyId);
+
+  await putMyStoriesOnPage();
+}
+
+$storiesLists.on("click",".trash-can", trashButtonClick);
