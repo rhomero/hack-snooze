@@ -80,6 +80,7 @@ function putFavoritesOnPage(){
   $favStoriesList.empty();
 
   if(currentUser.favorites.length === 0){
+    console.log("here")
     $favStoriesList.append("<h4>No favorites added:/</h4>");
     
   }else{
@@ -88,7 +89,7 @@ function putFavoritesOnPage(){
       $favStoriesList.append($story);
     }
   }
-  $favStoriesList.show
+  $favStoriesList.show()
 }
 
 function putMyStoriesOnPage(){
@@ -98,7 +99,7 @@ function putMyStoriesOnPage(){
 
   
   if(currentUser.ownStories.length === 0){
-    $userStoriesList.append("<h4>No favorites added:/</h4>");
+    $userStoriesList.append("<h4>No stories added:/</h4>");
   }else {
     for (let story of currentUser.ownStories) {
       let $story = generateStoryMarkup(story, true);
