@@ -19,22 +19,43 @@ async function getAndShowStoriesOnStart() {
  * Returns the markup for the story.
  */
 
-function generateStoryMarkup(story) {
+//showTrash on default is false unless look at my stories
+function generateStoryMarkup(story, showTrash=false) {
   // console.debug("generateStoryMarkup", story);
+
+  const showStar = Boolean(currentUser);
 
   const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">
+      ${showStar ? getStar(story, currentUser) : null}
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
         <small class="story-hostname">(${hostName})</small>
         <small class="story-author">by ${story.author}</small>
+        ${showTrash ? getTrash() : ""}
         <small class="story-user">posted by ${story.username}</small>
+        
       </li>
     `);
 }
 
+function getStar(story, currentUser){
+  const isFav = currentUser.isFav(story);
+  const typeStar = isFav ? "fas": "far" ;
+  return `
+  <span class="star">
+    <i class="${typeStar} fa-star"></i>
+  </span>`;
+}
+
+function getTrash(){
+  return `
+  <span class="trash-can">
+    <i class="fas fa-trash-alt"></i>
+  </span>`;
+}
 /** Gets list of stories from server, generates their HTML, and puts on page. */
 
 function putStoriesOnPage() {
@@ -80,7 +101,7 @@ function putMyStoriesOnPage(){
     $userStoriesList.append("<h4>No favorites added:/</h4>");
   }else {
     for (let story of currentUser.ownStories) {
-      let $story = generateStoryMarkup(story);
+      let $story = generateStoryMarkup(story, true);
       $userStoriesList.append($story);
     }
 
