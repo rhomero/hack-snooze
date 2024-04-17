@@ -10,6 +10,7 @@ const $favStoriesList = $("#fav-stories-list");
 const $userStoriesList = $("#user-stories-list");
 
 const $storiesContainer = $("#stories-container")
+const $storiesLists = $(".stories-list");
 
 
 const $loginForm = $("#login-form");

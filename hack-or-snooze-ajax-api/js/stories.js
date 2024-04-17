@@ -131,3 +131,24 @@ async function submitNewArticle(evt) {
 }
 
 $submitForm.on("submit", submitNewArticle)
+
+async function favoriteToggle(evt) {
+  console.debug("favoriteToggle");
+
+  const $closestLi = $(evt.target).closest("li");
+  const storyId = $closestLi.attr("id");
+  //console.log(storyId);
+  const selectedStory = storyList.stories.find(s=> s.storyId === storyId);
+  console.log(selectedStory);
+  
+  if ($(evt.target).hasClass("fas")){
+    await currentUser.removeFavoriteStory(selectedStory);
+    $(evt.target).closest("i").toggleClass("fas far")
+  }else {
+    await currentUser.addFavoriteStory(selectedStory);
+    $(evt.target).closest("i").toggleClass("fas far")
+  }
+
+}
+
+$storiesLists.on("click",".star", favoriteToggle);

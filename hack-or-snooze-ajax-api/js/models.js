@@ -209,8 +209,9 @@ class User {
   async addFavoriteStory(story) {
     const token = this.loginToken;
     this.favorites.push(story);
+
     const response = await axios({
-      url: `${BASE_URL}/users/${this.username}/favorites/${this.storyId}`,
+      url: `${BASE_URL}/users/${this.username}/favorites/${story.storyId}`,
       method: "POST",
       params: {token},
     });
@@ -220,7 +221,7 @@ class User {
     const token = this.loginToken;
     this.favorites = this.favorites.filter(s => s.storyId !== story.storyId);
     const response = await axios({
-      url: `${BASE_URL}/users/${this.username}/favorites/${this.storyId}`,
+      url: `${BASE_URL}/users/${this.username}/favorites/${story.storyId}`,
       method: "DELETE",
       data: {token},
     })
@@ -230,5 +231,5 @@ class User {
    isFav(story) {
     return this.favorites.some(s => (s.storyId === story.storyId));
   }
-
 }
+
