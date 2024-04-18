@@ -23,9 +23,11 @@ class Story {
 
   /** Parses hostname out of URL and returns it. */
 
-  getHostName() {
-    // UNIMPLEMENTED: complete this function!
-    return "hostname.com";
+  getHostName(url) {
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    
+    return `${anchor.hostname}`;
   }
 }
 
@@ -74,7 +76,7 @@ class StoryList {
    */
 
   async addStory(user, { title, author, url } ) {
-    // UNIMPLEMENTED: complete this function!
+
     const token = user.loginToken;
       const response = await axios({
         method: "POST",

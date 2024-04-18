@@ -115,3 +115,9 @@ function updateUIOnUserLogin() {
   updateNavOnLogin();
 }
 
+function displayUserProfile() {
+  console.debug("displayUserProfile");
+  
+  
+}
+

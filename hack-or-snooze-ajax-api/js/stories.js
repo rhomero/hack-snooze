@@ -25,7 +25,7 @@ function generateStoryMarkup(story, showTrash=false) {
 
   const showStar = Boolean(currentUser);
 
-  const hostName = story.getHostName();
+  const hostName = story.getHostName(story.url);
   return $(`
       <li id="${story.storyId}">
       ${showStar ? getStar(story, currentUser) : ""}

@@ -12,6 +12,10 @@ const $userStoriesList = $("#user-stories-list");
 const $storiesContainer = $("#stories-container")
 const $storiesLists = $(".stories-list");
 
+const $userContainer = $(".user-profile");
+const $profileName = $("#profile-name");
+const $profileUsername = $("#profile-username");
+const $profileCreatedOn = $("#profile-createdOn");
 
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
@@ -32,6 +36,7 @@ const $navUserStories = $("#nav-user-stories");
 
 function hidePageComponents() {
   const components = [
+    $userContainer,
     $favStoriesList,
     $userStoriesList,
     $allStoriesList,

@@ -59,3 +59,14 @@ function navMyStoriesClick(){
 }
 
 $navUserStories.on("click", navMyStoriesClick)
+
+function navUserClick(){
+  console.debug("navUserClick");
+  hidePageComponents();
+  $profileName.text(currentUser.name);
+  $profileUsername.text(currentUser.username);
+  $profileCreatedOn.text(currentUser.createdAt);
+
+  $userContainer.show();
+}
+$navUserProfile.on("click", navUserClick);
