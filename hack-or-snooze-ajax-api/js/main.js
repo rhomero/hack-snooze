@@ -12,7 +12,7 @@ const $userStoriesList = $("#user-stories-list");
 const $storiesContainer = $("#stories-container")
 const $storiesLists = $(".stories-list");
 
-const $userContainer = $(".user-profile");
+const $userContainer = $(".user-profile-container");
 const $profileName = $("#profile-name");
 const $profileUsername = $("#profile-username");
 const $profileCreatedOn = $("#profile-createdOn");

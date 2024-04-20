@@ -61,7 +61,7 @@ function getTrash(){
 
 function putStoriesOnPage() {
   console.debug("putStoriesOnPage");
-
+  hidePageComponents()
   $allStoriesList.empty();
 
   // loop through all of our stories and generate HTML for them
