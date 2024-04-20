@@ -23,7 +23,7 @@
   color: black;
   font-size: 0.85rem;
   font-weight: normal;
-  margin: 18px 0;
+   margin: 20px 2px;
 }
 
 .story-link:hover {
@@ -31,9 +31,19 @@
 }
 
 .story-author {
-  margin-left: 2em;
+  font-size: .85rem;
+  color: green;
+  margin: 0.5em 1.5em;
+  display: block;
 }
 
 .story-user {
+  color: orange;
+  margin-left: 2em;
+
   display: block;
+}
+
+.trash-can:hover{
+color: red;
 }

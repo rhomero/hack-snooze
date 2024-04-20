@@ -3,6 +3,8 @@
 body {
   font-family: Arimo, sans-serif;
   margin: 8px 7.5vw;
+  background: rgb(186,204,255);
+  background: linear-gradient(90deg, rgba(186,204,255,1) 15%, rgba(222,194,255,1) 50%, rgba(186,204,255,1) 85%);  
 }
 
 h1 {
